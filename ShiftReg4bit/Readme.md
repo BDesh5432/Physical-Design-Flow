@@ -52,6 +52,4 @@ In commercial flows, CTS is tightly integrated with routing and timing
 closure engines. The purpose here was to gain hands-on exposure rather
 than replicate full sign-off behavior.
 
-## Layout Pics
-![Final Layout] (images/final_layout.png)
 
