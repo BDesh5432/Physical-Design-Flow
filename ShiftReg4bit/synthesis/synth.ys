@@ -1,0 +1,31 @@
+# Read RTL
+read_verilog ShiftReg4bit.v
+
+# Set top module
+hierarchy -check -top shift_reg_4bit
+
+# Generic synthesis
+proc
+opt
+fsm
+opt
+memory
+opt
+
+# Technology mapping
+techmap
+opt
+
+# Map flip-flops
+dfflibmap -liberty /home/bdesh/Codes/NangateOpenCellLibrary_typical.lib
+
+# Map combinational logic
+abc -liberty /home/bdesh/Codes/NangateOpenCellLibrary_typical.lib
+
+# Cleanup
+opt
+clean
+
+# Write gate-level netlist
+write_verilog shift_reg_synth.v
+
