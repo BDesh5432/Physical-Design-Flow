@@ -1,0 +1,32 @@
+# Read RTL
+read_verilog /home/bdesh/Codes/8Bit_Alu/rtl/alu_8bit.v
+read_verilog /home/bdesh/Codes/8Bit_Alu/rtl/alu_8bit_top.v
+
+# Set top module
+hierarchy -check -top alu_8bit_top
+
+# Generic synthesis
+proc
+opt
+fsm
+opt
+memory
+opt
+
+# Technology mapping
+techmap
+opt
+
+# Map flip-flops
+dfflibmap -liberty /home/bdesh/Codes/8Bit_Alu/tech/NangateOpenCellLibrary_typical.lib
+
+# Map combinational logic
+abc -liberty /home/bdesh/Codes/8Bit_Alu/tech/NangateOpenCellLibrary_typical.lib
+
+# Cleanup
+opt
+clean
+
+# Write gate-level netlist
+write_verilog /home/bdesh/Codes/8Bit_Alu/synth/alu_8bit_synth.v
+
